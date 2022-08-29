@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit USER</title>
+</head>
+<body>
+<h1>Update USER</h1>
+<form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
+    <table>
+        <tr>
+            <td>
+                <label for="id">USER ID  </label>
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="id"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="name">Name</label>
+                <input type="text" th:field="*{name}" id="name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="username">Login</label>
+                <input type="text" th:field="*{username}" id="username"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="patronim">Patronim</label>
+                <input type="text" th:field="*{patronim}" id="patronim"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="surname">Surname</label>
+                <input type="text" th:field="*{surname}" id="surname"/>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="age">Age</label>
+                <input type="number" th:field="*{age}" id="age"/>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="email">Email</label>
+                <input type="text" th:field="*{email}" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password</label>
+                <input type="password" th:field="*{password}" id="password"/>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label>Роль:
+                    <select size="2" multiple name="role" required="required">
+                        <option selected="selected" value="1">USER</option>
+                        <option value="2">ADMIN</option>
+                    </select>
+                </label>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <input class ="buttonEdit" type="submit" value="Save changes"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<button class="buttonLogout" onclick="window.location.href = '/logout';">Exit</button>
+</body>
+</html>
